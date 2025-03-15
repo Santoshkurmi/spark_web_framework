@@ -1,0 +1,13 @@
+{
+  "name": "spark",
+  "version": "1.0.0",
+  "description": "This is a web framework to build dynamic apps",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start":"node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
