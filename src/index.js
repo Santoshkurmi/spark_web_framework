@@ -1,5 +1,6 @@
 import { createApp } from "./app.js";
 import { h, hString } from "./h.js";
+import { Counter } from "./ui/Counter.js";
 
 
 createApp({
@@ -28,18 +29,10 @@ createApp({
         }
     },
     view:(state,emit)=>{
-        // console.log(state,"State")
+        console.log(state,"State")
         return h('div',{class:'counter'},[
-            h('h1',{class:'counter-value'},["Todo"]),
-            h('input',{type:'text',value:state.currentTodo,on:{input:e=>emit('setCurrentTodo',e.target.value),keydown:e=>e.keyCode===13&&emit('addTodo')} } ),
-            
-            h('button',{on:{click:()=>emit('addTodo')}},['Add']),
-            h('br'),
-            h('ul',{class:'todo-list'},
-                state.todos.map(
-                    (todo,index)=>h('li',{class:'todo-item',styles:{backgroundColor:index%2==0?"red":"blue"},
-                        on:{
-                            click:()=>emit('removeTodo',index)}},[todo])    ) ),
+            h("p",{on:{click:()=>emit("addTodo")}},["Hello World"]),
+           h(Counter,{click:()=>console.log("Yes there"),count:99,on:{click:()=>console.log("Parent is called")}})
         ])
     }
 }).mount(document.getElementById('root'));

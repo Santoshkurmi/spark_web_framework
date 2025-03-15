@@ -1,19 +1,21 @@
 import { withoutNulls } from "./utils/arrays.js"
 
 export const DOM_TYPES = {
-    TEXT:0,
-    ELEMENT:1,
-    FRAGMENT:2
+    TEXT:"text",
+    ELEMENT:"element",
+    FRAGMENT:"fragment",
+    COMPONENT:"component"
 }
 
 
 
 export function h(tag,props={},children=[]){
+    const type = typeof tag === 'string' ? DOM_TYPES.ELEMENT : DOM_TYPES.COMPONENT;
     return {
         tag,
         props,
+        type,
         children: mapTextNodes(withoutNulls(children)),
-        type:DOM_TYPES.ELEMENT
     }
     
 }

@@ -18,6 +18,10 @@ export function destroyDOM(vDom){
             removeFragment(vDom);
             break;
         }
+        case DOM_TYPES.COMPONENT:{
+            vDom.component.unmount();
+            break;
+        }
     }
 }
 
